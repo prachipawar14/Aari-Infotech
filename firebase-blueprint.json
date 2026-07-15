@@ -1,0 +1,85 @@
+{
+  "entities": {
+    "Inquiry": {
+      "title": "Inquiry",
+      "description": "A client service inquiry and project scope report",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string",
+          "pattern": "^[a-zA-Z0-9_\\-]+$"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 2,
+          "maxLength": 100
+        },
+        "email": {
+          "type": "string",
+          "format": "email",
+          "maxLength": 128
+        },
+        "phone": {
+          "type": "string",
+          "maxLength": 20
+        },
+        "company": {
+          "type": "string",
+          "maxLength": 100
+        },
+        "services": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "message": {
+          "type": "string",
+          "maxLength": 1000
+        },
+        "status": {
+          "type": "string",
+          "enum": [
+            "pending",
+            "contacted",
+            "archived"
+          ]
+        },
+        "estimatedHoursSaved": {
+          "type": "number"
+        },
+        "estimatedSavings": {
+          "type": "number"
+        },
+        "estimatedCost": {
+          "type": "number"
+        },
+        "aiRecommendation": {
+          "type": "string",
+          "maxLength": 10000
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": [
+        "name",
+        "email",
+        "status",
+        "createdAt",
+        "updatedAt"
+      ]
+    }
+  },
+  "firestore": {
+    "/inquiries/{inquiryId}": {
+      "schema": "Inquiry",
+      "description": "Collection of client inquiries and custom proposals"
+    }
+  }
+}

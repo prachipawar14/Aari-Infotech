@@ -1,0 +1,6 @@
+{
+  "name": "Aari Infotech",
+  "description": "High-performance website development, intelligent AI automation, and business process automation agency.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
